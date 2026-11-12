@@ -1,0 +1,27 @@
+{
+  "name": "dsh-llm-retry-upstream-400",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Retry a failed DSH model request 5 seconds after an upstream-provider 400 rejection",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/plugin.test.mjs && node test/integration.test.mjs",
+    "validate-patch": "node scripts/validate-patch.mjs",
+    "install": "node scripts/install.mjs",
+    "uninstall": "node scripts/install.mjs --uninstall"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5"
+  }
+}

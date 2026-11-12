@@ -1,0 +1,3 @@
+/build/
+*.bak
+/node_modules/

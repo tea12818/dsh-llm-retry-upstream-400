@@ -1,0 +1,16 @@
+# The bundle patch for dsh-llm-retry-upstream-400: one inserted loader row.
+#
+# Loaded when this package is installed as a profile bundle
+# (`dsh plugin --profile desktop add link:E:/mygit/dsh-400`), the row joins the
+# composition after the shipped layers, so its `agent/request-error` listener
+# runs after `@deepseek-ai/dsh-llm-retry` has had its own say.
+- insert:
+    - id: llm-retry-upstream-400
+      name: 'dsh-llm-retry-upstream-400'
+      config:
+        enabled: true
+        delayMs: 5000
+        maxRetries: 12
+        statuses: [400]
+        codes: [INVALID_REQUEST]
+        matchPattern: 'upstream\s+error\s*\(\s*request\s*id'
